@@ -4,13 +4,40 @@ const cards = document.querySelectorAll('.card');
 // Modal container to display clicked card content
 const modalContainer = document.querySelector('#modal-container');
 
-const modalContent = modalContainer.querySelector('#modal-content');
+const overlay = document.querySelector('.overlay');
+
+const modalContent = modalContainer.querySelector('.modal-content');
 
 const modalImagee = modalContainer.querySelector('img');
+
+const modalCloseBtn = document.querySelector(".btn-close");
+
+
+const toggleHide = (element) => {    
+    element.classList.toggle("hide");
+};
+
+const closeModal = () => {
+    toggleHide(overlay);
+    toggleHide(modalContainer);
+}
+
+overlay.addEventListener('click', () => {
+    closeModal();
+});
+
+modalCloseBtn.addEventListener('click', () => {
+    closeModal();
+});
 
 // Add event listener to each card
 cards.forEach((card) => {
     card.addEventListener('click', (event) => {
+        //Toggle hide class
+        toggleHide(overlay);
+        toggleHide(modalContainer);
+        
+
         // Get the clicked card
         const clickedCard = event.currentTarget; // "currentTarget" ensures we target the card itself
 
@@ -18,25 +45,10 @@ cards.forEach((card) => {
         const selectedImage = clickedCard.querySelector('img').src;
 
         // Create a modal content structure
-        modalContainer.innerHTML = `
+        modalContent.innerHTML = `
             <div class="modal-content">
                 <img src="${selectedImage}" alt="Card Image">
             </div>
         `;
-
     });
-});
-
-const toggleOverlay = () => {
-    const overlay = document.querySelector('.overlay');
-    overlay.classList.contains('hide');
-};
-
-// Close modal on clicking the 'X' button
-const btn = document.querySelector('.btn-close');
-
-btn.addEventListener('click', () => {
-  console.log("Button clicked!");
-  modalContainer.innerHTML = ''; // Clear the modal content
-  console.log("Modal cleared.");
 });
