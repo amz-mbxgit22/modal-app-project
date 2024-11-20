@@ -37,6 +37,7 @@ body {
   width: 632px;
   background-color: lightyellow;
   border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 #modal-container {
@@ -60,6 +61,13 @@ body {
   height: 200px;
 }
 
+.card:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  transition: 0.5s ease;
+  opacity: 0.9;
+}
+
 #modal-container img,
 .card img {
   width: 100%;
@@ -72,8 +80,7 @@ body {
   color: #fff;
   cursor: pointer;
   font-size: 24px;
-  height: 40px;
-  padding: 10px;
+  height: 20px;
   position: absolute;
   right: 10px;
   text-decoration: none;
@@ -81,35 +88,10 @@ body {
   width: 20px;
   z-index: 10;
   transition: transform 0.2s;
-}
-
-.btn-close:active {
-    transform: scale(0.95);
+  box-sizing: border-box;
 }
 
 .btn-close:hover {
-  background-color: rgba(173, 155, 155, 0.2);
-  border-radius: 12px;
-  height: auto;
-  width: 20px;
-  align-self: center;
-  text-align: center;
-  position:center;
+  transform: scale(1.2);
   transition: 0.5s ease all;
-}
-
-.card:hover {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    border-radius: 15px;
-    cursor: pointer;
-    transform: scale(1.02);
-    transition: 0.3s;
-}
-
-.modal-content:hover {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  border-radius: 15px;
-  cursor: pointer;
-  transform: scale(1.01);
-  transition: 0.9s;
 }
